@@ -34,6 +34,7 @@ public class PlayerControler : MonoBehaviour
         Movement();
         Camera.transform.position = transform.position;
         AttackMotion();
+
     }
 
     void Movement()
@@ -90,4 +91,5 @@ public class PlayerControler : MonoBehaviour
         transform.eulerAngles = Camera.transform.eulerAngles + rot;
         isRun = true;
     }
+    
 }

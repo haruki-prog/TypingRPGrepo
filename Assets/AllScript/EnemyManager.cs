@@ -11,6 +11,7 @@ public class EnemyManager : MonoBehaviour
     private Animator animator;
     private float speed = 3f;
     private float distance;
+   
     private int currentHP;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +25,12 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Distance();
+        AttackMotion();
+
+    }
+    void Distance()
+    {
         distance = Vector3.Distance(target.position, this.transform.position);
         if (distance < 10)
         {
@@ -34,8 +41,18 @@ public class EnemyManager : MonoBehaviour
         {
             animator.SetBool("Found", false);
         }
-
-
+    }
+    void AttackMotion()
+    {
+        if (distance < 2)
+        {
+            
+            animator.SetBool("Attack", true);
+        }
+        else
+        {
+            animator.SetBool("Attack", false);
+        }
     }
     /*void OnTriggerEnter(Collider col)
     {
