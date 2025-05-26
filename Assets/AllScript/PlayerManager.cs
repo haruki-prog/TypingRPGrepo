@@ -33,6 +33,7 @@ public class PlayerControler : MonoBehaviour
     {
         Movement();
         Camera.transform.position = transform.position;
+        AttackMotion();
     }
 
     void Movement()
@@ -70,6 +71,18 @@ public class PlayerControler : MonoBehaviour
         transform.Translate(speed);
         PlayerAnimator.SetBool("run", isRun);
     }
+    void AttackMotion()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            animator.SetBool("attack", true);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            animator.SetBool("attack", false);
+        }
+    }
+
 
     void MoveSet()
     {

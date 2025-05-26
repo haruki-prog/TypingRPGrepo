@@ -25,7 +25,7 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(target.position, this.transform.position);
-        if (distance < 100)
+        if (distance < 10)
         {
             agent.destination = target.position;
             animator.SetBool("Found", true);
