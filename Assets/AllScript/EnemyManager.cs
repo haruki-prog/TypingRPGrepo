@@ -44,7 +44,7 @@ public class EnemyManager : MonoBehaviour
     }
     void AttackMotion()
     {
-        if (distance < 2)
+        if (distance < 0.5)
         {
             
             animator.SetBool("Attack", true);
@@ -54,19 +54,16 @@ public class EnemyManager : MonoBehaviour
             animator.SetBool("Attack", false);
         }
     }
-    /*void OnTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("Weapon"))
         {
-            if (animator.GetBool("Damage")) return;
-            animator.SetBool("Damage", true);
-            StartCoroutine(ResetDamageFlag());
-        }
+            Debug.Log("Hit!");
+            animator.SetTrigger("Damage");
 
-    }*/
-   /* IEnumerator ResetDamageFlag()
-    {
-        yield return new WaitForSeconds(0.5f);
-        animator.SetBool("Damage", false);
-    }*/
+        }
+        
+
+    }
+  
 }

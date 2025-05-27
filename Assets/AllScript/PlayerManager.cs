@@ -21,7 +21,7 @@ public class PlayerControler : MonoBehaviour
 
 
     public Animator PlayerAnimator;
-
+    public Collider WeaponCollider;
 
     void Start()
     {
@@ -91,5 +91,15 @@ public class PlayerControler : MonoBehaviour
         transform.eulerAngles = Camera.transform.eulerAngles + rot;
         isRun = true;
     }
+    void WeaponON()
+    {
+        WeaponCollider.enabled = true;
+    }
+    void WeaponOFF()
+    {
+        WeaponCollider.enabled = false;
+        PlayerAnimator.SetBool("attack", false);
+    }
     
+
 }
