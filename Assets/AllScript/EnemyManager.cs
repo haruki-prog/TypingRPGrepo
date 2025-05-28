@@ -29,6 +29,7 @@ public class EnemyManager : MonoBehaviour
         AttackMotion();
 
     }
+    //敵が追いかけてくる範囲の設定
     void Distance()
     {
         distance = Vector3.Distance(target.position, this.transform.position);
@@ -42,9 +43,11 @@ public class EnemyManager : MonoBehaviour
             animator.SetBool("Found", false);
         }
     }
+    
+    //攻撃モーションの設定
     void AttackMotion()
     {
-        if (distance < 0.5)
+        if (distance < 2)
         {
             
             animator.SetBool("Attack", true);
@@ -54,6 +57,7 @@ public class EnemyManager : MonoBehaviour
             animator.SetBool("Attack", false);
         }
     }
+    //ダメージモーションの設定、間違いありかも
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("Weapon"))

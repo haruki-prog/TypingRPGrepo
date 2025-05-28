@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//“G‚Ì©“®¶¬A‘½•ªVtuber‚©‚ç‚»‚Ì‚Ü‚Ü
 public class EnemyCriative : MonoBehaviour
 {
     public GameObject Enemy1;

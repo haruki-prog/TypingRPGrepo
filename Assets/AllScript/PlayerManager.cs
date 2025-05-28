@@ -72,6 +72,7 @@ public class PlayerControler : MonoBehaviour
         transform.Translate(speed);
         PlayerAnimator.SetBool("run", isRun);
     }
+    //攻撃モーションの設定
     void AttackMotion()
     {
         if (Input.GetKey(KeyCode.Space))
@@ -91,6 +92,8 @@ public class PlayerControler : MonoBehaviour
         transform.eulerAngles = Camera.transform.eulerAngles + rot;
         isRun = true;
     }
+    //アニメーションの当たり判定の設定。　　間違いありかも
+    
     void WeaponON()
     {
         WeaponCollider.enabled = true;
