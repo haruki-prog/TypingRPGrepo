@@ -8,7 +8,7 @@ public class PlayerControler : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private Animator animator;
-    //private float speed = 100f;
+    
     private int currentHP;
 
 
