@@ -12834,7 +12834,7 @@ GameObject:
   - component: {fileID: 1704325662}
   - component: {fileID: 1704325661}
   m_Layer: 0
-  m_Name: EnemyCriative
+  m_Name: EnemyCreative
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

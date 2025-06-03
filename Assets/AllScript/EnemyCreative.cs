@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //“G‚Ì©“®¶¬A‘½•ªVtuber‚©‚ç‚»‚Ì‚Ü‚Ü
-public class EnemyCriative : MonoBehaviour
+public class EnemyCreative : MonoBehaviour
 {
     public GameObject Enemy1;
     public GameObject Enemy2;
