@@ -23,6 +23,9 @@ public class PlayerControler : MonoBehaviour
     public Animator PlayerAnimator;
     public Collider WeaponCollider;
 
+
+    public float RotationSpeed;         //RotationSpeed:視点移動の感度を格納する変数
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -32,6 +35,7 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
         Movement();
+        Rotation();
         Camera.transform.position = transform.position;
         AttackMotion();
 
@@ -72,6 +76,15 @@ public class PlayerControler : MonoBehaviour
         transform.Translate(speed);
         PlayerAnimator.SetBool("run", isRun);
     }
+
+    void MoveSet()
+    {
+        speed.z = PlayerSpeed;
+        transform.eulerAngles = Camera.transform.eulerAngles + rot;
+        isRun = true;
+    }
+
+
     //攻撃モーションの設定
     void AttackMotion()
     {
@@ -84,14 +97,7 @@ public class PlayerControler : MonoBehaviour
             animator.SetBool("attack", false);
         }
     }
-
-
-    void MoveSet()
-    {
-        speed.z = PlayerSpeed;
-        transform.eulerAngles = Camera.transform.eulerAngles + rot;
-        isRun = true;
-    }
+    
     //アニメーションの当たり判定の設定。　　間違いありかも
     
     void WeaponON()
@@ -103,6 +109,22 @@ public class PlayerControler : MonoBehaviour
         WeaponCollider.enabled = false;
         PlayerAnimator.SetBool("attack", false);
     }
-    
+
+
+    //視点移動の関数
+    void Rotation()
+    {
+        var speed = Vector3.zero;
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            speed.y = RotationSpeed;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            speed.y = -RotationSpeed;
+        }
+        Camera.transform.eulerAngles += speed;
+    }
+
 
 }
