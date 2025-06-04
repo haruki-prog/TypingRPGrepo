@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerControler : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private Animator animator;
@@ -18,7 +18,8 @@ public class PlayerControler : MonoBehaviour
     public Transform Camera;
 
     bool isRun;
-    bool canMove = true;    //ˆÚ“®‚Å‚«‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éboolŒ^•Ï”
+    public bool canMove = true;    //ˆÚ“®‚Å‚«‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éboolŒ^•Ï”
+
 
     public Animator PlayerAnimator;
     public Collider WeaponCollider;
