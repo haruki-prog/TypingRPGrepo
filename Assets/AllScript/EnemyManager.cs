@@ -13,6 +13,10 @@ public class EnemyManager : MonoBehaviour
     private float distance;
    
     private int currentHP;
+
+    public Animator EnemyAnimator;  //敵のアニメーターを格納する変数
+    public Collider AttackingPlayerCollider;    //プレイヤーを攻撃時の敵の当たり判定を格納するCollider型変数
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,7 +51,7 @@ public class EnemyManager : MonoBehaviour
     //攻撃モーションの設定
     void AttackMotion()
     {
-        if (distance < 2)
+        if (distance < 2&& distance>1)
         {
             
             animator.SetBool("Attack", true);
@@ -57,6 +61,18 @@ public class EnemyManager : MonoBehaviour
             animator.SetBool("Attack", false);
         }
     }
+
+    void AttackModeON() //敵の当たり判定を切り替える関数
+    {
+        AttackingPlayerCollider.enabled = true;
+    }
+    void AttackModeOFF()
+    {
+        AttackingPlayerCollider.enabled = false;
+        EnemyAnimator.SetBool("Attack", false);
+    }
+
+
     //ダメージモーションの設定、間違いありかも [追記:調整しました]
     private void OnTriggerEnter(Collider col)
     {

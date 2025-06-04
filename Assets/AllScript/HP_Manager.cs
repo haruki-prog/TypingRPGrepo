@@ -33,7 +33,7 @@ public class HP_Manager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "AttackingEnemy")
+        if (other.tag == "AttackingPlayer")
         {
             Damage();
             collider.enabled = false;
