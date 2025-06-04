@@ -57,13 +57,14 @@ public class EnemyManager : MonoBehaviour
             animator.SetBool("Attack", false);
         }
     }
-    //ダメージモーションの設定、間違いありかも
-    void OnTriggerEnter(Collider col)
+    //ダメージモーションの設定、間違いありかも [追記:調整しました]
+    private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.CompareTag("Weapon"))
+        if (col.tag== "Weapon")
         {
             Debug.Log("Hit!");
-            animator.SetTrigger("Damage");
+            //animator.SetTrigger("Damage");
+            Destroy(gameObject);    //一撃で死ぬようにしてます
 
         }
         

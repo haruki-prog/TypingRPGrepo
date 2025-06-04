@@ -18,7 +18,7 @@ public class PlayerControler : MonoBehaviour
     public Transform Camera;
 
     bool isRun;
-
+    bool canMove = true;    //ˆÚ“®‚Å‚«‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éboolŒ^•Ï”
 
     public Animator PlayerAnimator;
     public Collider WeaponCollider;
@@ -46,10 +46,10 @@ public class PlayerControler : MonoBehaviour
         speed = Vector3.zero;
         rot = Vector3.zero;
         isRun = false;
-        /*if (!canMove)
+        if (!canMove)   //ˆÚ“®‚Å‚«‚È‚­‚·‚é
         {
             return;
-        }*/
+        }
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -84,17 +84,20 @@ public class PlayerControler : MonoBehaviour
         isRun = true;
     }
 
+    // ˆÚ“®‚ğ‹–‰Â‚·‚éŠÖ”
+    void CanMove()
+    {
+        canMove = true;
+    }
 
     //UŒ‚ƒ‚[ƒVƒ‡ƒ“‚Ìİ’è
     void AttackMotion()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))    
         {
-            animator.SetBool("attack", true);
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            animator.SetBool("attack", false);
+            PlayerAnimator.SetBool("attack", true);
+            canMove = false;    //ˆÚ“®‚Å‚«‚È‚­‚·‚é
+
         }
     }
     
