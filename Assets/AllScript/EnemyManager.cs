@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class EnemyManager : MonoBehaviour
 
     public Animator EnemyAnimator;  //“G‚ÌƒAƒjƒ[ƒ^[‚ğŠi”[‚·‚é•Ï”
     public Collider AttackingPlayerCollider;    //ƒvƒŒƒCƒ„[‚ğUŒ‚‚Ì“G‚Ì“–‚½‚è”»’è‚ğŠi”[‚·‚éColliderŒ^•Ï”
+
+    public AudioSource audioSource;
+    public AudioClip HitSE;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -79,6 +84,7 @@ public class EnemyManager : MonoBehaviour
         if (col.tag== "Weapon")
         {
             Debug.Log("Hit!");
+            audioSource.PlayOneShot(HitSE);
             //animator.SetTrigger("Damage");
             Destroy(gameObject);    //ˆêŒ‚‚Å€‚Ê‚æ‚¤‚É‚µ‚Ä‚Ü‚·
 

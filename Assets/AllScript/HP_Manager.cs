@@ -12,8 +12,9 @@ public class HP_Manager : MonoBehaviour
 
 
     //public GameObject Effect;
-    //public AudioSource audioSource;
-    //public AudioClip HitSE;
+    public AudioSource audioSource;
+    public AudioClip HitSE;
+    public AudioClip DeathSE;
 
     public Collider collider;
     public float ResetTime = 0;
@@ -28,6 +29,7 @@ public class HP_Manager : MonoBehaviour
         if (HP <= 0)
         {
             HP = 0;
+            audioSource.PlayOneShot(DeathSE);
             //var effect = Instantiate(Effect);
             //effect.transform.position = transform.position;
             //Destroy(effect, 5);
@@ -48,7 +50,7 @@ public class HP_Manager : MonoBehaviour
 
     void Damage()
     {
-        //audioSource.PlayOneShot(HitSE);
+        audioSource.PlayOneShot(HitSE);
         HP--;
         PlayerAnimator.SetBool("hittobody", true);
         plc.canMove = false;

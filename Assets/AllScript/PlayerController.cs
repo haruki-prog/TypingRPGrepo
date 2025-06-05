@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
 
     public float RotationSpeed;         //RotationSpeed:‹“_ˆÚ“®‚ÌŠ´“x‚ğŠi”[‚·‚é•Ï”
+
+    public AudioSource audioSource;
+    public AudioClip SwingSE;
 
     void Start()
     {
@@ -107,6 +111,7 @@ public class PlayerController : MonoBehaviour
     void WeaponON()
     {
         WeaponCollider.enabled = true;
+        audioSource.PlayOneShot(SwingSE);
     }
     void WeaponOFF()
     {
