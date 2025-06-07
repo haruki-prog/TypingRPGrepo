@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Audio;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    //[SerializeField] Transform target;
    // [SerializeField] EnemyStatusSO enemyStatusSO;
+
     private NavMeshAgent agent;
     private Animator animator;
     private float speed = 3f;
@@ -24,6 +26,16 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject DeathEffect;
 
+    public string Target;
+    Transform target;
+
+    float Timer;
+    public float EnemySpeed;
+    public float ChangeTime;
+
+    GameObject playerObj;
+
+
     //[SerializeField] private ParticleSystem AttackEffect;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,29 +44,48 @@ public class EnemyManager : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         agent.speed = speed;
-       // currentHP = enemyStatusSO.HP;
-
+        // currentHP = enemyStatusSO.HP;
+        playerObj = GameObject.FindWithTag(Target);
     }
     // Update is called once per frame
     void Update()
     {
+
+
         Distance();
         AttackMotion();
 
     }
+
+    
+
+
     //敵が追いかけてくる範囲の設定
     void Distance()
     {
-        distance = Vector3.Distance(target.position, this.transform.position);
-        if (distance < 10)
+
+        if(!playerObj)
         {
-            agent.destination = target.position;
-            animator.SetBool("Found", true);
+            return;
         }
-        else
+        
+        if (playerObj != null)
         {
-            animator.SetBool("Found", false);
+            target = playerObj.transform;
+
+            distance = Vector3.Distance(target.position, this.transform.position);
+            if (distance < 10)
+            {
+                agent.destination = target.position;
+                animator.SetBool("Found", true);
+            }
+            else
+            {
+                animator.SetBool("Found", false);
+            }
         }
+
+       
     }
     
     //攻撃モーションの設定
@@ -91,11 +122,19 @@ public class EnemyManager : MonoBehaviour
             Debug.Log("Hit!");
             audioSource.PlayOneShot(HitSE);
             //animator.SetTrigger("Damage");
-            var effect = Instantiate(DeathEffect);
+
             var pos = transform.position;
-            pos.y += 1.0f;
+            pos.y += 1.2f;
+            var effect = Instantiate(DeathEffect);
             effect.transform.position = pos;
             Destroy(effect, 5);
+
+            AudioSource deathSE = Instantiate(audioSource, transform.position, Quaternion.identity);
+            deathSE.transform.SetParent(null); // いったん親から外す
+            deathSE.Play();
+            Destroy(deathSE.gameObject, deathSE.clip.length); // 再生が終わったタイミングで消すようにした
+
+
             Destroy(gameObject);    //一撃で死ぬようにしてます
 
         }

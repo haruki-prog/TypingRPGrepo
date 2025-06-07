@@ -10,7 +10,7 @@ public class EnemyCreative : MonoBehaviour
 
     public Transform EnemyPlace1;
     public Transform EnemyPlace2;
-    [SerializeField] Transform target;/*追いかけるターゲットをヒエラルキー内から宣言しているためプレハブ化できなくて不便
+    /*[SerializeField] Transform target;  追いかけるターゲットをヒエラルキー内から宣言しているためプレハブ化できなくて不便
      なので、タグかレイヤーで設定する方がいいと思う。今後メインキャラを増やすことも考えたら後者の方がよい。
     注意：シリアライズとプレハブ化は共存できない！プレハブ化したいなら追尾のソースコードを変えるしかない。*/
 

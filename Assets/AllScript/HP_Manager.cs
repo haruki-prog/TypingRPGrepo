@@ -11,7 +11,7 @@ public class HP_Manager : MonoBehaviour
     public Image HPGage;
 
 
-    //public GameObject Effect;
+    
     public AudioSource audioSource;
     public AudioClip HitSE;
     public AudioClip DeathSE;
