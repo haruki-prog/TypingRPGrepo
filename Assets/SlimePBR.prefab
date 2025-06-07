@@ -181,6 +181,9 @@ MonoBehaviour:
   target: {fileID: 3224305986838228858, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
   EnemyAnimator: {fileID: 7438583246333257748}
   AttackingPlayerCollider: {fileID: 2649333657303751802}
+  audioSource: {fileID: 0}
+  HitSE: {fileID: 0}
+  DeathEffect: {fileID: 0}
 --- !u!65 &973330853872477449
 BoxCollider:
   m_ObjectHideFlags: 0
