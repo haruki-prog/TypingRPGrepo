@@ -20,7 +20,10 @@ public class EnemyManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip HitSE;
-    
+
+
+    public GameObject DeathEffect;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -86,6 +89,11 @@ public class EnemyManager : MonoBehaviour
             Debug.Log("Hit!");
             audioSource.PlayOneShot(HitSE);
             //animator.SetTrigger("Damage");
+            var effect = Instantiate(DeathEffect);
+            var pos = transform.position;
+            pos.y += 1.0f;
+            effect.transform.position = pos;
+            Destroy(effect, 5);
             Destroy(gameObject);    //ˆêŒ‚‚ÅŽ€‚Ê‚æ‚¤‚É‚µ‚Ä‚Ü‚·
 
         }

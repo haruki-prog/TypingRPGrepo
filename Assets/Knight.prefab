@@ -351,6 +351,8 @@ MonoBehaviour:
   PlayerAnimator: {fileID: 3224305986831286524}
   WeaponCollider: {fileID: 6885514391487799669}
   RotationSpeed: 0.4
+  audioSource: {fileID: 0}
+  SwingSE: {fileID: 0}
 --- !u!54 &767206796875138957
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -416,10 +418,14 @@ MonoBehaviour:
   HP: 13
   MaxHP: 13
   HPGage: {fileID: 0}
+  audioSource: {fileID: 0}
+  HitSE: {fileID: 0}
+  DeathSE: {fileID: 0}
   collider: {fileID: 6048024453814899914}
   ResetTime: 3
   PlayerAnimator: {fileID: 3224305986831286524}
   plc: {fileID: 6573392919792760096}
+  DamageEffect: {fileID: 0}
 --- !u!1 &8738095787752605621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3027268988800683479, guid: 417a287abb2cab94889f1f1ddd91f928, type: 3}
