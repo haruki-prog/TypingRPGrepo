@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip SwingSE;
 
+    [SerializeField] private ParticleSystem SwingEffect;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -110,8 +111,10 @@ public class PlayerController : MonoBehaviour
     
     void WeaponON()
     {
+        SwingEffect.Play();
         WeaponCollider.enabled = true;
         audioSource.PlayOneShot(SwingSE);
+        
     }
     void WeaponOFF()
     {

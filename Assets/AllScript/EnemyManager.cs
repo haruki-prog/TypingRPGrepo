@@ -24,6 +24,7 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject DeathEffect;
 
+    //[SerializeField] private ParticleSystem AttackEffect;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -72,6 +73,7 @@ public class EnemyManager : MonoBehaviour
 
     void AttackModeON() //“G‚Ì“–‚½‚è”»’è‚ğØ‚è‘Ö‚¦‚éŠÖ”
     {
+        //AttackEffect.Play();
         AttackingPlayerCollider.enabled = true;
     }
     void AttackModeOFF()

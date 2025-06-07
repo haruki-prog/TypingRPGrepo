@@ -30,9 +30,7 @@ public class HP_Manager : MonoBehaviour
         {
             HP = 0;
             audioSource.PlayOneShot(DeathSE);
-            //var effect = Instantiate(Effect);
-            //effect.transform.position = transform.position;
-            //Destroy(effect, 5);
+            
             Destroy(gameObject);
         }
         float percent = (float)HP / MaxHP;

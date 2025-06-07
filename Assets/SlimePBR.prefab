@@ -184,6 +184,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   HitSE: {fileID: 0}
   DeathEffect: {fileID: 0}
+  SwingEffect: {fileID: 0}
 --- !u!65 &973330853872477449
 BoxCollider:
   m_ObjectHideFlags: 0
