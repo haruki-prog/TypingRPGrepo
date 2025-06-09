@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 6639697036771638823}
   - component: {fileID: 456705257184027144}
   - component: {fileID: 492179060173052228}
+  - component: {fileID: -1983690560319262813}
   m_Layer: 0
   m_Name: SlimePBR
   m_TagString: Enemy
@@ -337,7 +338,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3108120036306921996}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d33561f00ab8fb649abf4dfd2ff5c642, type: 3}
   m_Name: 
@@ -348,6 +349,8 @@ MonoBehaviour:
   HitSE: {fileID: 8300000, guid: 1ebe1d746228b6041b8291f16a056d61, type: 3}
   DeathEffect: {fileID: 2238123927529648645, guid: 6832192dbf9be874487b453ecb8b5fcb, type: 3}
   Target: Player
+  EnemySpeed: 0
+  ChangeTime: 0
 --- !u!65 &456705257184027144
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -401,6 +404,26 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 0bb7575d8e4b3f3479f68146cfd5079d, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &-1983690560319262813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108120036306921996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79c24fe11b9460048886c67acd8a65e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyAnimator: {fileID: 4084641709927222189}
+  AttackingPlayerCollider: {fileID: 2724582663442316026}
+  audioSource: {fileID: 5875323287664283381}
+  HitSE: {fileID: 8300000, guid: 1ebe1d746228b6041b8291f16a056d61, type: 3}
+  DeathEffect: {fileID: 2238123927529648645, guid: 6832192dbf9be874487b453ecb8b5fcb, type: 3}
+  Target: Player
+  EnemySpeed: 0
+  ChangeTime: 0
 --- !u!1 &3401150800870418133
 GameObject:
   m_ObjectHideFlags: 0
