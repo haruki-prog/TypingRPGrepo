@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         Movement();
         Rotation();
         Camera.transform.position = transform.position;
-        AttackMotion();
+       // AttackMotion();
 
     }
 
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //攻撃モーションの設定
-    void AttackMotion()
+    /*void AttackMotion()
     {
         if (Input.GetKeyDown(KeyCode.Space))    
         {
@@ -105,10 +105,26 @@ public class PlayerController : MonoBehaviour
             canMove = false;    //移動できなくする
 
         }
+    }*/
+    public void TriggerAttack()
+    {
+        PlayerAnimator.SetBool("attack", true);
+        canMove = false;
+
+        // 剣を振るエフェクトなど
+        if (SwingEffect != null)
+            SwingEffect.Play();
+
+        if (WeaponCollider != null)
+            WeaponCollider.enabled = true;
+
+        if (audioSource != null && SwingSE != null)
+            audioSource.PlayOneShot(SwingSE);
     }
-    
+       
+
     //アニメーションの当たり判定の設定。　　間違いありかも
-    
+
     void WeaponON()
     {
         SwingEffect.Play();
@@ -121,6 +137,7 @@ public class PlayerController : MonoBehaviour
         WeaponCollider.enabled = false;
         PlayerAnimator.SetBool("attack", false);
     }
+ 
 
 
     //視点移動の関数

@@ -812,7 +812,6 @@ GameObject:
   - component: {fileID: 8603414433450649529}
   - component: {fileID: 4839078110588113365}
   - component: {fileID: 8178105936279940924}
-  - component: {fileID: -2069423203092262115}
   m_Layer: 0
   m_Name: TurtleShellPolyart
   m_TagString: Enemy
@@ -1003,7 +1002,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5782531639551700745}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d33561f00ab8fb649abf4dfd2ff5c642, type: 3}
   m_Name: 
@@ -1016,26 +1015,9 @@ MonoBehaviour:
   Target: Player
   EnemySpeed: 0
   ChangeTime: 0
---- !u!114 &-2069423203092262115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5782531639551700745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bab57ef67f694a40a5fa361d8ae8c7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyAnimator: {fileID: 4313801779115639881}
-  AttackingPlayerCollider: {fileID: 7136624717665023205}
-  audioSource: {fileID: 3640185097293739535}
-  HitSE: {fileID: 8300000, guid: 1ebe1d746228b6041b8291f16a056d61, type: 3}
-  DeathEffect: {fileID: 2238123927529648645, guid: 6832192dbf9be874487b453ecb8b5fcb, type: 3}
-  Target: Player
-  EnemySpeed: 0
-  ChangeTime: 0
+  typingWord: Blue
+  typingCount: 1
+  typingText: {fileID: 0}
 --- !u!1 &6069359751527028737
 GameObject:
   m_ObjectHideFlags: 0

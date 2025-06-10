@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Audio;
 using static UnityEngine.GraphicsBuffer;
+using TMPro;
+
 
 public class EnemyManager : MonoBehaviour
 {
@@ -35,6 +37,10 @@ public class EnemyManager : MonoBehaviour
 
     GameObject playerObj;
 
+    [SerializeField] public string typingWord = "slime";//与える文字列
+    [SerializeField] public int typingCount = 1;//タイピングをする回数
+    [SerializeField] public TMP_Text typingText;
+    private string currentInput = "";
 
     //[SerializeField] private ParticleSystem AttackEffect;
 
@@ -54,6 +60,7 @@ public class EnemyManager : MonoBehaviour
 
         Distance();
         AttackMotion();
+       
 
     }
 
@@ -112,6 +119,8 @@ public class EnemyManager : MonoBehaviour
         AttackingPlayerCollider.enabled = false;
         EnemyAnimator.SetBool("Attack", false);
     }
+    
+    
 
 
     //ダメージモーションの設定、間違いありかも [追記:調整しました]
@@ -141,5 +150,35 @@ public class EnemyManager : MonoBehaviour
         
 
     }
-  
+    public void Die()
+    {
+        Debug.Log("敵を倒しました！");
+
+        if (audioSource != null && HitSE != null)
+        {
+            audioSource.PlayOneShot(HitSE);
+        }
+
+        if (DeathEffect != null)
+        {
+            var pos = transform.position;
+            pos.y += 1.2f;
+            var effect = Instantiate(DeathEffect);
+            effect.transform.position = pos;
+            Destroy(effect, 5);
+        }
+
+        if (audioSource != null)
+        {
+            AudioSource deathSE = Instantiate(audioSource, transform.position, Quaternion.identity);
+            deathSE.transform.SetParent(null);
+            deathSE.Play();
+            Destroy(deathSE.gameObject, deathSE.clip.length);
+        }
+
+        Destroy(gameObject);
+    }
+
+
+
 }
