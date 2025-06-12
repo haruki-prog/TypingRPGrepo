@@ -119,65 +119,82 @@ public class EnemyManager : MonoBehaviour
         AttackingPlayerCollider.enabled = false;
         EnemyAnimator.SetBool("Attack", false);
     }
-    
-    
+
+
 
 
     //ダメージモーションの設定、間違いありかも [追記:調整しました]
+    /* private void OnTriggerEnter(Collider col)
+     {
+         if (col.tag== "Weapon")
+         {
+             Debug.Log("Hit!");
+             audioSource.PlayOneShot(HitSE);
+             //animator.SetTrigger("Damage");
+
+             var pos = transform.position;
+             pos.y += 1.2f;
+             var effect = Instantiate(DeathEffect);
+             effect.transform.position = pos;
+             Destroy(effect, 5);
+
+             AudioSource deathSE = Instantiate(audioSource, transform.position, Quaternion.identity);
+             deathSE.transform.SetParent(null); // いったん親から外す
+             deathSE.Play();
+             Destroy(deathSE.gameObject, deathSE.clip.length); // 再生が終わったタイミングで消すようにした
+
+
+             Destroy(gameObject);    //一撃で死ぬようにしてます
+
+         }
+
+
+     }*/
+ 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.tag== "Weapon")
+        if (col.tag == "Weapon")
         {
             Debug.Log("Hit!");
-            audioSource.PlayOneShot(HitSE);
-            //animator.SetTrigger("Damage");
+            typingCount--;  // タイピングカウントをここで減らす
+            // typingCount が 0 以下なら死亡処理
+            if (typingCount <= 0)
+            {
+                if (audioSource != null && HitSE != null)
+                {
+                    audioSource.PlayOneShot(HitSE);
+                }
 
-            var pos = transform.position;
-            pos.y += 1.2f;
-            var effect = Instantiate(DeathEffect);
-            effect.transform.position = pos;
-            Destroy(effect, 5);
+                if (DeathEffect != null)
+                {
+                    var pos = transform.position;
+                    pos.y += 1.2f;
+                    var effect = Instantiate(DeathEffect);
+                    effect.transform.position = pos;
+                    Destroy(effect, 5);
+                   
+                }
 
-            AudioSource deathSE = Instantiate(audioSource, transform.position, Quaternion.identity);
-            deathSE.transform.SetParent(null); // いったん親から外す
-            deathSE.Play();
-            Destroy(deathSE.gameObject, deathSE.clip.length); // 再生が終わったタイミングで消すようにした
+                if (audioSource != null)
+                {
+                    AudioSource deathSE = Instantiate(audioSource, transform.position, Quaternion.identity);
+                    deathSE.transform.SetParent(null);
+                    deathSE.Play();
+                    Destroy(deathSE.gameObject, deathSE.clip.length);
+                }
 
+                Destroy(gameObject); // 敵を削除
+                Debug.Log("倒れました");
+            }
+            else
+            {
 
-            Destroy(gameObject);    //一撃で死ぬようにしてます
-
+                Debug.Log("まだ倒れません。残り：" + typingCount);
+                EnemyAnimator.SetTrigger("Die");
+            }
         }
-        
-
     }
-    public void Die()
-    {
-        Debug.Log("敵を倒しました！");
 
-        if (audioSource != null && HitSE != null)
-        {
-            audioSource.PlayOneShot(HitSE);
-        }
-
-        if (DeathEffect != null)
-        {
-            var pos = transform.position;
-            pos.y += 1.2f;
-            var effect = Instantiate(DeathEffect);
-            effect.transform.position = pos;
-            Destroy(effect, 5);
-        }
-
-        if (audioSource != null)
-        {
-            AudioSource deathSE = Instantiate(audioSource, transform.position, Quaternion.identity);
-            deathSE.transform.SetParent(null);
-            deathSE.Play();
-            Destroy(deathSE.gameObject, deathSE.clip.length);
-        }
-
-        Destroy(gameObject);
-    }
 
 
 

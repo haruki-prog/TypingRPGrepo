@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 6639697036771638823}
   - component: {fileID: 456705257184027144}
   - component: {fileID: 492179060173052228}
+  - component: {fileID: 8292760505402514263}
   m_Layer: 0
   m_Name: SlimePBR
   m_TagString: Enemy
@@ -350,8 +351,8 @@ MonoBehaviour:
   Target: Player
   EnemySpeed: 0
   ChangeTime: 0
-  typingWord: Slime
-  typingCount: 1
+  typingWord: yyy
+  typingCount: 2
   typingText: {fileID: 1314364771891930542}
 --- !u!65 &456705257184027144
 BoxCollider:
@@ -406,6 +407,20 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 0bb7575d8e4b3f3479f68146cfd5079d, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &8292760505402514263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108120036306921996}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed917728cfbc5444a3769a2ad9057a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  currentEnemy: {fileID: 0}
 --- !u!1 &3401150800870418133
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,7 +921,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Slime
+  m_text: yyy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

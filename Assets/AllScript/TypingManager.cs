@@ -1,46 +1,93 @@
 using UnityEngine;
-using UnityEngine.AI;
+using TMPro;
 
 public class TypingManager : MonoBehaviour
 {
-    public PlayerController playerController; // ← プレイヤーの参照
-    public EnemyManager currentEnemy;         // ← 現在攻撃対象の敵
+    public PlayerController playerController;
+    public EnemyManager currentEnemy;
+
     private string currentInput = "";
-  
+
+    public float detectionRadius = 15f; // 敵を探す範囲
 
     void Update()
     {
+        // 1. 最も近い敵を探してセット（まだターゲットがいないとき）
+        FindClosestEnemy();
+        if (currentEnemy == null)
+        {
+            return;
+        }
+
+        // 敵がいる場合のタイピング処理
+        if (string.IsNullOrEmpty(currentEnemy.typingWord))
+            return;
+
         foreach (char c in Input.inputString)
         {
             currentInput += c;
 
-            // 敵がいないなら無視
-            if (currentEnemy == null) return;
-
-            // ▼ ここがあなたの質問のコードです！ ▼
             if (currentInput.ToLower() == currentEnemy.typingWord.ToLower())
             {
-                playerController.TriggerAttack();  // プレイヤー攻撃
+                if (playerController != null)
+                    playerController.TriggerAttack();
+
                 currentEnemy.typingCount--;
 
-                currentInput = ""; // 入力リセット
+                currentInput = "";
 
-                if (currentEnemy.typingCount <= 0)
+                /*if (currentEnemy.typingCount <= 0)
                 {
-                    currentEnemy.Die(); // 敵を倒す処理
-                }
+                    currentEnemy.Die();
+                    currentEnemy = null;
+                }*/
             }
-            // 間違ってる文字列ならリセット（任意）
-            else if (!currentEnemy.typingWord.StartsWith(currentInput.ToLower()))
+            else if (!currentEnemy.typingWord.ToLower().StartsWith(currentInput.ToLower()))
             {
                 currentInput = "";
             }
 
-            // 表示更新（任意）
             if (currentEnemy.typingText != null)
             {
                 currentEnemy.typingText.text = currentEnemy.typingWord + "\n" + currentInput;
             }
+        }
+    }
+
+    // 最も近い敵を探す関数
+    void FindClosestEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float minDistance = Mathf.Infinity;
+        EnemyManager closest = null;
+
+        foreach (GameObject enemy in enemies)
+        {
+            EnemyManager manager = enemy.GetComponent<EnemyManager>();
+            if (manager == null || manager.typingCount <= 0) continue;
+
+            float dist = Vector3.Distance(transform.position, enemy.transform.position);
+            if (dist < minDistance && dist < detectionRadius)
+            {
+                minDistance = dist;
+                closest = manager;
+            }
+        }
+
+        if (closest != null && currentEnemy != closest)
+        {
+            SetTargetEnemy(closest);
+        }
+    }
+
+    public void SetTargetEnemy(EnemyManager enemy)
+    {
+        currentEnemy = enemy;
+        currentInput = "";
+
+        if (enemy.typingText != null)
+        {
+            enemy.typingText.text = enemy.typingWord;
         }
     }
 }
