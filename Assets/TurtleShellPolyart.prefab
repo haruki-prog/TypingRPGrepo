@@ -1050,7 +1050,6 @@ GameObject:
   - component: {fileID: 8603414433450649529}
   - component: {fileID: 4839078110588113365}
   - component: {fileID: 8178105936279940924}
-  - component: {fileID: 4699560903504528725}
   m_Layer: 0
   m_Name: TurtleShellPolyart
   m_TagString: Enemy
@@ -1258,21 +1257,6 @@ MonoBehaviour:
   typingWord: uuu
   typingCount: 4
   typingText: {fileID: 3699199042984754131}
---- !u!114 &4699560903504528725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5782531639551700745}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ed917728cfbc5444a3769a2ad9057a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  currentEnemy: {fileID: 0}
-  detectionRadius: 15
 --- !u!1 &6069359751527028737
 GameObject:
   m_ObjectHideFlags: 0

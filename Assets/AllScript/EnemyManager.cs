@@ -9,9 +9,7 @@ using TMPro;
 
 public class EnemyManager : MonoBehaviour
 {
-    //[SerializeField] Transform target;
-   // [SerializeField] EnemyStatusSO enemyStatusSO;
-
+   
     private NavMeshAgent agent;
     private Animator animator;
     private float speed = 3f;
@@ -155,7 +153,32 @@ public class EnemyManager : MonoBehaviour
     {
         if (col.tag == "Weapon")
         {
-            Debug.Log("Hit!");
+           
+            // TypingManager の currentEnemy を取得
+            TypingManager typingManager = Object.FindFirstObjectByType<TypingManager>();
+            Debug.Log("== Trigger 時の確認 ==");
+            Debug.Log($"TypingManager: {typingManager}");
+            Debug.Log($"currentEnemy: {typingManager?.currentEnemy}");
+            Debug.Log($"This:{this},CrrentEnemy:{typingManager.currentEnemy}");
+            if (typingManager == null)
+            {
+                Debug.LogWarning("TypingManager が見つかりません");
+                return;
+            }
+            if (typingManager.currentEnemy == null)
+            {
+                Debug.LogWarning("currentEnemy が null です");
+                return;
+            }
+         
+
+            // 対象の敵以外は無視
+            if (typingManager.currentEnemy.gameObject != this.gameObject)
+            {
+                Debug.Log("攻撃されたが、対象外のため無視: " + gameObject.name);
+                return;
+            }
+            Debug.Log("Hit2!");
             typingCount--;  // タイピングカウントをここで減らす
             // typingCount が 0 以下なら死亡処理
             if (typingCount <= 0)
@@ -191,6 +214,7 @@ public class EnemyManager : MonoBehaviour
 
                 Debug.Log("まだ倒れません。残り：" + typingCount);
                 EnemyAnimator.SetTrigger("Die");
+               
             }
         }
     }
