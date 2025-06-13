@@ -35,8 +35,8 @@ public class EnemyManager : MonoBehaviour
 
     GameObject playerObj;
 
-    [SerializeField] public string typingWord = "slime";//与える文字列
-    [SerializeField] public int typingCount = 1;//タイピングをする回数
+    [SerializeField] public string typingWord ;//与える文字列
+    [SerializeField] public int typingCount;//タイピングをする回数
     [SerializeField] public TMP_Text typingText;
     private string currentInput = "";
 
@@ -180,6 +180,7 @@ public class EnemyManager : MonoBehaviour
             }
             Debug.Log("Hit2!");
             typingCount--;  // タイピングカウントをここで減らす
+            
             // typingCount が 0 以下なら死亡処理
             if (typingCount <= 0)
             {

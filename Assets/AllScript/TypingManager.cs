@@ -39,7 +39,7 @@ public class TypingManager : MonoBehaviour
                 if (playerController != null)
                     playerController.TriggerAttack();//TriggerAttackを呼び出す
 
-                currentEnemy.typingCount--;　//カウントを下げる
+               // currentEnemy.typingCount--;　//カウントを下げる
 
                 currentInput = "";//リセットする
 

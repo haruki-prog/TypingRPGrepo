@@ -351,7 +351,7 @@ MonoBehaviour:
   EnemySpeed: 0
   ChangeTime: 0
   typingWord: yyy
-  typingCount: 1
+  typingCount: 2
   typingText: {fileID: 1314364771891930542}
 --- !u!65 &456705257184027144
 BoxCollider:

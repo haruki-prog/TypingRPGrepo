@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: uuu
+  m_text: hhh
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1254,8 +1254,8 @@ MonoBehaviour:
   Target: Player
   EnemySpeed: 0
   ChangeTime: 0
-  typingWord: uuu
-  typingCount: 4
+  typingWord: hhh
+  typingCount: 3
   typingText: {fileID: 3699199042984754131}
 --- !u!1 &6069359751527028737
 GameObject:

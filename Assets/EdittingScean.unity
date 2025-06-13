@@ -12767,7 +12767,7 @@ MonoBehaviour:
   EnemyPlace1: {fileID: 912877019}
   EnemyPlace2: {fileID: 260992732}
   Count: 0
-  MaxCount: 4
+  MaxCount: 2
 --- !u!4 &1704325662
 Transform:
   m_ObjectHideFlags: 0
@@ -17378,6 +17378,14 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 90574367}
+    - target: {fileID: 7390460880219765811, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
+      propertyPath: HP
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390460880219765811, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
+      propertyPath: MaxHP
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7390460880219765811, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
       propertyPath: HPGage
       value: 
