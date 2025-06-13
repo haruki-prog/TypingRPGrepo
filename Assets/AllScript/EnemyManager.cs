@@ -117,37 +117,6 @@ public class EnemyManager : MonoBehaviour
         AttackingPlayerCollider.enabled = false;
         EnemyAnimator.SetBool("Attack", false);
     }
-
-
-
-
-    //ダメージモーションの設定、間違いありかも [追記:調整しました]
-    /* private void OnTriggerEnter(Collider col)
-     {
-         if (col.tag== "Weapon")
-         {
-             Debug.Log("Hit!");
-             audioSource.PlayOneShot(HitSE);
-             //animator.SetTrigger("Damage");
-
-             var pos = transform.position;
-             pos.y += 1.2f;
-             var effect = Instantiate(DeathEffect);
-             effect.transform.position = pos;
-             Destroy(effect, 5);
-
-             AudioSource deathSE = Instantiate(audioSource, transform.position, Quaternion.identity);
-             deathSE.transform.SetParent(null); // いったん親から外す
-             deathSE.Play();
-             Destroy(deathSE.gameObject, deathSE.clip.length); // 再生が終わったタイミングで消すようにした
-
-
-             Destroy(gameObject);    //一撃で死ぬようにしてます
-
-         }
-
-
-     }*/
  
     private void OnTriggerEnter(Collider col)
     {
