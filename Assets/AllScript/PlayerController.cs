@@ -110,16 +110,6 @@ public class PlayerController : MonoBehaviour
     {
         PlayerAnimator.SetBool("attack", true);
         canMove = false;
-
-        // 剣を振るエフェクトなど
-        if (SwingEffect != null)
-            SwingEffect.Play();
-
-        if (WeaponCollider != null)
-            WeaponCollider.enabled = true;
-
-        if (audioSource != null && SwingSE != null)
-            audioSource.PlayOneShot(SwingSE);
     }
        
 
