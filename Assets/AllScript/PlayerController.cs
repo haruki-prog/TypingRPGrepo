@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour
     {
         WeaponCollider.enabled = false;
         PlayerAnimator.SetBool("attack", false);
+        PlayerAnimator.SetBool("combo", false);
     }
  
 
