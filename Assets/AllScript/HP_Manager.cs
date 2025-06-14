@@ -17,7 +17,7 @@ public class HP_Manager : MonoBehaviour
     
 
     public Collider collider;
-    public float ResetTime = 0;
+    public float ResetTime = 0.0f;
 
     public Animator PlayerAnimator; //プレイヤーアニメーターを使用
 
