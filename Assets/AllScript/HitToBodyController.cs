@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class HitToBodyController : StateMachineBehaviour
 {
-    //private PlayerController plc;
+    private PlayerController plc;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        plc.WeaponCollider.enabled = false;
         animator.SetBool("combo", false);
         animator.SetBool("attack", false);
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        plc.WeaponCollider.enabled = false;
         animator.SetBool("combo", false);
         animator.SetBool("attack", false);
     }

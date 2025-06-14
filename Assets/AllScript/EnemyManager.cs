@@ -30,10 +30,10 @@ public class EnemyManager : MonoBehaviour
     public string Target;
     Transform target;
 
-    float Timer;
+    /*float Timer;
     public float EnemySpeed;
     public float ChangeTime;
-
+    */
     GameObject playerObj;
 
     [SerializeField] public string typingWord ;//ó^Ç¶ÇÈï∂éöóÒ
@@ -153,11 +153,9 @@ public class EnemyManager : MonoBehaviour
 
             //ó^É_ÉÅéûÇÃeffect,SE
             audioSource.PlayOneShot(HitSE);
-            var pos = transform.position;
-            pos.y += 1.2f;
-            var effect = Instantiate(DamageEffect);
-            effect.transform.position = pos;
-            Destroy(effect, 5);
+            Vector3 effectPosition = transform.position + new Vector3(0, 1.5f, 0);
+            GameObject effect = Instantiate(DamageEffect, effectPosition, Quaternion.identity);
+            Destroy(effect, 2);
 
 
             // typingCount Ç™ 0 à»â∫Ç»ÇÁéÄñSèàóù
@@ -170,11 +168,9 @@ public class EnemyManager : MonoBehaviour
 
                 if (DeathEffect != null)
                 {
-                    pos = transform.position;
-                    pos.y += 1.2f;
-                    effect = Instantiate(DeathEffect);
-                    effect.transform.position = pos;
-                    Destroy(effect, 5);
+                    Vector3 effectPosition1 = transform.position + new Vector3(0, 1.5f, 0);
+                    GameObject effect1 = Instantiate(DeathEffect, effectPosition1, Quaternion.identity);
+                    Destroy(effect1, 3);
                    
                 }
 

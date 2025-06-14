@@ -204,7 +204,6 @@ GameObject:
   - component: {fileID: 6625617108629805724}
   - component: {fileID: 4084641709927222189}
   - component: {fileID: 2744876834715404564}
-  - component: {fileID: 7637440006781969417}
   - component: {fileID: 4395779353968147733}
   - component: {fileID: 6639697036771638823}
   - component: {fileID: 456705257184027144}
@@ -225,7 +224,7 @@ Transform:
   m_GameObject: {fileID: 3108120036306921996}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 152.5, y: 0.1, z: 0.18448257}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -285,29 +284,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &7637440006781969417
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3108120036306921996}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!195 &4395779353968147733
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -349,8 +325,6 @@ MonoBehaviour:
   DeathEffect: {fileID: 2433282508537954060, guid: 3aeddbbf302f69a4fb3cc361afeb971b, type: 3}
   DamageEffect: {fileID: 2238123927529648645, guid: 6832192dbf9be874487b453ecb8b5fcb, type: 3}
   Target: Player
-  EnemySpeed: 0
-  ChangeTime: 0
   typingWord: yyy
   typingCount: 10
   typingText: {fileID: 1314364771891930542}

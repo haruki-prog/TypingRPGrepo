@@ -22208,7 +22208,7 @@ PrefabInstance:
       objectReference: {fileID: 411219028}
     - target: {fileID: 6885514391487799669, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7390460880219765811, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
       propertyPath: HP
