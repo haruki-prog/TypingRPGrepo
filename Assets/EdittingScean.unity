@@ -12767,7 +12767,7 @@ MonoBehaviour:
   EnemyPlace1: {fileID: 912877019}
   EnemyPlace2: {fileID: 260992732}
   Count: 0
-  MaxCount: 2
+  MaxCount: 4
 --- !u!4 &1704325662
 Transform:
   m_ObjectHideFlags: 0
@@ -16641,8 +16641,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1383730159}
   - {fileID: 1968560840}
+  - {fileID: 1383730159}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2093785256
@@ -17381,7 +17381,7 @@ PrefabInstance:
       objectReference: {fileID: 90574367}
     - target: {fileID: 7390460880219765811, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
       propertyPath: HP
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7390460880219765811, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
       propertyPath: MaxHP
@@ -17391,6 +17391,10 @@ PrefabInstance:
       propertyPath: HPGage
       value: 
       objectReference: {fileID: 1812312386}
+    - target: {fileID: 7390460880219765811, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
+      propertyPath: DeathEffect
+      value: 
+      objectReference: {fileID: 2433282508537954060, guid: 3aeddbbf302f69a4fb3cc361afeb971b, type: 3}
     - target: {fileID: 7390460880219765811, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
       propertyPath: audioSource
       value: 

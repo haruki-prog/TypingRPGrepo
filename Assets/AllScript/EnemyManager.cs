@@ -25,6 +25,7 @@ public class EnemyManager : MonoBehaviour
 
 
     public GameObject DeathEffect;
+    public GameObject DamageEffect;
 
     public string Target;
     Transform target;
@@ -149,32 +150,41 @@ public class EnemyManager : MonoBehaviour
             }
             Debug.Log("Hit2!");
             typingCount--;  // タイピングカウントをここで減らす
-            
+
+            //与ダメ時のeffect,SE
+            audioSource.PlayOneShot(HitSE);
+            var pos = transform.position;
+            pos.y += 1.2f;
+            var effect = Instantiate(DamageEffect);
+            effect.transform.position = pos;
+            Destroy(effect, 5);
+
+
             // typingCount が 0 以下なら死亡処理
             if (typingCount <= 0)
             {
-                if (audioSource != null && HitSE != null)
+                /*if (audioSource != null && DeathSE != null)
                 {
-                    audioSource.PlayOneShot(HitSE);
-                }
+                    audioSource.PlayOneShot(DeathSE);
+                }*/
 
                 if (DeathEffect != null)
                 {
-                    var pos = transform.position;
+                    pos = transform.position;
                     pos.y += 1.2f;
-                    var effect = Instantiate(DeathEffect);
+                    effect = Instantiate(DeathEffect);
                     effect.transform.position = pos;
                     Destroy(effect, 5);
                    
                 }
 
-                if (audioSource != null)
+                /*if (audioSource != null)
                 {
                     AudioSource deathSE = Instantiate(audioSource, transform.position, Quaternion.identity);
                     deathSE.transform.SetParent(null);
                     deathSE.Play();
                     Destroy(deathSE.gameObject, deathSE.clip.length);
-                }
+                }*/
 
                 Destroy(gameObject); // 敵を削除
                 Debug.Log("倒れました");

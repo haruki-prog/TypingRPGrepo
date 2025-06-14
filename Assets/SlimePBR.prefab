@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 3108120036306921996}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 152.5, y: 0.22, z: 0.18448257}
+  m_LocalPosition: {x: 152.5, y: 0.1, z: 0.18448257}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -347,6 +347,7 @@ MonoBehaviour:
   audioSource: {fileID: 5875323287664283381}
   HitSE: {fileID: 8300000, guid: 1ebe1d746228b6041b8291f16a056d61, type: 3}
   DeathEffect: {fileID: 2433282508537954060, guid: 3aeddbbf302f69a4fb3cc361afeb971b, type: 3}
+  DamageEffect: {fileID: 2238123927529648645, guid: 6832192dbf9be874487b453ecb8b5fcb, type: 3}
   Target: Player
   EnemySpeed: 0
   ChangeTime: 0
