@@ -1250,7 +1250,7 @@ MonoBehaviour:
   AttackingPlayerCollider: {fileID: 7136624717665023205}
   audioSource: {fileID: 3640185097293739535}
   HitSE: {fileID: 8300000, guid: 1ebe1d746228b6041b8291f16a056d61, type: 3}
-  DeathEffect: {fileID: 2238123927529648645, guid: 6832192dbf9be874487b453ecb8b5fcb, type: 3}
+  DeathEffect: {fileID: 2433282508537954060, guid: 3aeddbbf302f69a4fb3cc361afeb971b, type: 3}
   Target: Player
   EnemySpeed: 0
   ChangeTime: 0
