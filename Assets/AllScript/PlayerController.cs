@@ -31,7 +31,10 @@ public class PlayerController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip SwingSE;
 
-    [SerializeField] private ParticleSystem SwingEffect;
+    //[SerializeField] private ParticleSystem SwingEffect;
+    public ParticleSystem Attack1Effect;
+    public ParticleSystem Attack2Effect;
+    public ParticleSystem Attack3Effect;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -117,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
     void WeaponON()
     {
-        SwingEffect.Play();
+        //SwingEffect.Play();
         WeaponCollider.enabled = true;
         audioSource.PlayOneShot(SwingSE);
         
@@ -144,6 +147,19 @@ public class PlayerController : MonoBehaviour
             speed.y = -RotationSpeed;
         }
         Camera.transform.eulerAngles += speed;
+    }
+
+    void PlayAttack1Effect()
+    {
+        Attack1Effect.Play();
+    }
+    void PlayAttack2Effect()
+    {
+        Attack2Effect.Play();
+    }
+    void PlayAttack3Effect()
+    {
+        Attack3Effect.Play();
     }
 
 
