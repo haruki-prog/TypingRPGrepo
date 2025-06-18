@@ -326,7 +326,7 @@ MonoBehaviour:
   DamageEffect: {fileID: 2238123927529648645, guid: 6832192dbf9be874487b453ecb8b5fcb, type: 3}
   Target: Player
   typingWord: yyy
-  typingCount: 1
+  typingCount: 5
   typingText: {fileID: 1314364771891930542}
 --- !u!65 &456705257184027144
 BoxCollider:

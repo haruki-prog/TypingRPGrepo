@@ -35,6 +35,15 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem Attack1Effect;
     public ParticleSystem Attack2Effect;
     public ParticleSystem Attack3Effect;
+
+    // エイムアシスト関連の追加変数
+    [Header("Aim Assist Settings")]
+    public float aimAssistSpeed = 10f; // エイムアシスト時の移動速度
+    public float aimAssistStopDistance = 1.5f; // 敵の手前で止まる距離
+    public float aimAssistDuration = 0.5f; // エイムアシストが持続する最大時間
+    private Transform currentAimAssistTarget = null; // 現在のエイムアシストターゲット
+    private float aimAssistTimer = 0f; // エイムアシストのタイマー
+    
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -43,8 +52,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Movement();
-        Rotation();
+        if (currentAimAssistTarget == null)
+        {
+            Movement();
+            Rotation();
+        }
+        else
+        {
+            // エイムアシスト中の移動処理
+            HandleAimAssistMovement();
+        }
         Camera.transform.position = transform.position;
         //AttackMotion();
 
@@ -130,6 +147,9 @@ public class PlayerController : MonoBehaviour
         WeaponCollider.enabled = false;
         PlayerAnimator.SetBool("attack", false);
         PlayerAnimator.SetBool("combo", false);
+        // 攻撃終了時にエイムアシストをリセット
+        currentAimAssistTarget = null;
+        aimAssistTimer = 0f;
     }
  
 
@@ -161,6 +181,52 @@ public class PlayerController : MonoBehaviour
     {
         Attack3Effect.Play();
     }
+    //エイムアシストの設定
+    public void StartAimAssist(Transform target)
+    {
+        if (target == null) return; // ターゲットが無ければ何もしない
 
+        currentAimAssistTarget = target;
+        aimAssistTimer = aimAssistDuration; // タイマーをリセット
+        canMove = false; // エイムアシスト中は移動を制限
+        // 敵の方向を向く
+        Vector3 lookDirection = (target.position - transform.position).normalized; // .normalizedは単位ベクトルに変換してくれるやつ
+        lookDirection.y = 0; // Y軸は無視
+        if (lookDirection != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(lookDirection);// 方向転換
+        }
+    }
+    //アシスト中の移動処理
+    private void HandleAimAssistMovement()
+    {
+        if (currentAimAssistTarget == null) return;
 
+        // タイマーを減らす
+        aimAssistTimer -= Time.deltaTime;
+
+        // ターゲットまでの距離を計算
+        Vector3 targetPos = currentAimAssistTarget.position;
+        targetPos.y = transform.position.y; // 高さ方向の移動を無視
+
+        float distanceToTarget = Vector3.Distance(transform.position, targetPos); // ターゲットまでの距離を計算
+
+        // 敵の手前で止まる距離(aimAssistStopDistance)よりも近ければ、移動を停止
+        if (distanceToTarget <= aimAssistStopDistance || aimAssistTimer <= 0f)
+        {
+            currentAimAssistTarget = null; // エイムアシスト終了
+            aimAssistTimer = 0f;
+            canMove = true; // 移動を許可
+            //rigidBody.velocity = Vector3.zero; // 慣性をなくす
+            return;
+        }
+
+       
+        Vector3 direction = (targetPos - transform.position).normalized; // 方角を決定
+        rigidBody.MovePosition(transform.position + direction * aimAssistSpeed * Time.deltaTime); // ターゲットに向かって移動
+
+        // プレイヤーの向きもターゲットに向ける
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, RotationSpeed * Time.deltaTime); // 線形補完してくれる関数slerp
+    }
 }

@@ -17582,7 +17582,7 @@ MonoBehaviour:
   EnemyPlace1: {fileID: 912877019}
   EnemyPlace2: {fileID: 260992732}
   Count: 0
-  MaxCount: 2
+  MaxCount: 4
 --- !u!4 &1704325662
 Transform:
   m_ObjectHideFlags: 0
@@ -22206,6 +22206,14 @@ PrefabInstance:
       propertyPath: Attack3Effect
       value: 
       objectReference: {fileID: 411219028}
+    - target: {fileID: 6573392919792760096, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
+      propertyPath: aimAssistSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573392919792760096, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
+      propertyPath: aimAssistStopDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6885514391487799669, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
       propertyPath: m_Enabled
       value: 0

@@ -37,7 +37,11 @@ public class TypingManager : MonoBehaviour
             if (currentInput.ToLower() == currentEnemy.typingWord.ToLower())//currentInput が typingWord と完全一致した場合
             {
                 if (playerController != null)
+                {
+                    playerController.StartAimAssist(currentEnemy.transform); //StartAimAssistを呼び出す
                     playerController.TriggerAttack();//TriggerAttackを呼び出す
+                }
+                    
 
                // currentEnemy.typingCount--;　//カウントを下げる
 
@@ -96,6 +100,10 @@ public class TypingManager : MonoBehaviour
 
     public void SetTargetEnemy(EnemyManager enemy)
     {
+
+
+
+
         Debug.Log("SetTargetEnemy 呼び出し:"+enemy.name);
         currentEnemy = enemy;//currentEnemyを更新
         currentInput = "";//inputをリセット
