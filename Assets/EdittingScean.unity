@@ -15427,7 +15427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 1383730163}
   currentEnemy: {fileID: 6639697036771638823, guid: fca260ec370fcee4abc8641cb270dd26, type: 3}
-  detectionRadius: 15
+  detectionRadius: 10
 --- !u!1001 &1384982068
 PrefabInstance:
   m_ObjectHideFlags: 0

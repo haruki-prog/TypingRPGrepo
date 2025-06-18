@@ -328,6 +328,7 @@ MonoBehaviour:
   typingWord: yyy
   typingCount: 5
   typingText: {fileID: 1314364771891930542}
+  attackDelayTime: 0.5
 --- !u!65 &456705257184027144
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -43,7 +43,11 @@ public class EnemyManager : MonoBehaviour
 
     //[SerializeField] private ParticleSystem AttackEffect;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // 攻撃遅延関連の変数
+    public float attackDelayTime = 1.0f; // 攻撃を開始するまでの遅延時間（秒）
+    private float currentAttackDelayTimer = 0f; // 現在の攻撃遅延タイマー
+   
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -51,6 +55,7 @@ public class EnemyManager : MonoBehaviour
         agent.speed = speed;
         // currentHP = enemyStatusSO.HP;
         playerObj = GameObject.FindWithTag(Target);
+        currentAttackDelayTimer = attackDelayTime;
     }
     // Update is called once per frame
     void Update()
@@ -93,21 +98,28 @@ public class EnemyManager : MonoBehaviour
 
        
     }
-    
+
     //攻撃モーションの設定
     void AttackMotion()
     {
-        if (distance < 2&& distance>1)
+        if (distance < 2 && distance > 1)
         {
+            currentAttackDelayTimer -= Time.deltaTime;
+            // タイマーが0以下になったら攻撃を開始
+            if (currentAttackDelayTimer <= 0f)
+            {
+                animator.SetBool("Attack", true);
+                currentAttackDelayTimer = attackDelayTime;
+            }
             
-            animator.SetBool("Attack", true);
         }
         else
         {
             animator.SetBool("Attack", false);
+            currentAttackDelayTimer = attackDelayTime;
         }
-    }
 
+    }
     void AttackModeON() //敵の当たり判定を切り替える関数
     {
         //AttackEffect.Play();
