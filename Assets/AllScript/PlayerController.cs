@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public float PlayerSpeed;
     Vector3 speed = Vector3.zero;
     Vector3 rot = Vector3.zero;
-    public Transform Camera;
+    //public Transform Camera;
 
     bool isRun;
     public bool canMove = true;    //移動できるかどうかを判定するbool型変数
@@ -63,7 +63,8 @@ public class PlayerController : MonoBehaviour
             // エイムアシスト中の移動処理
             HandleAimAssistMovement();
         }
-        Camera.transform.position = transform.position;
+        //Camera.transform.position = transform.position;
+
         //AttackMotion();
 
     }
@@ -107,7 +108,7 @@ public class PlayerController : MonoBehaviour
     void MoveSet()
     {
         speed.z = PlayerSpeed;
-        transform.eulerAngles = Camera.transform.eulerAngles + rot;
+        //transform.eulerAngles = Camera.transform.eulerAngles + rot;
         isRun = true;
     }
 
@@ -167,7 +168,7 @@ public class PlayerController : MonoBehaviour
         {
             speed.y = -RotationSpeed;
         }
-        Camera.transform.eulerAngles += speed;
+        //Camera.transform.eulerAngles += speed;
     }
 
     void PlayAttack1Effect()

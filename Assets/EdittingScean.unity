@@ -17582,7 +17582,7 @@ MonoBehaviour:
   EnemyPlace1: {fileID: 912877019}
   EnemyPlace2: {fileID: 260992732}
   Count: 0
-  MaxCount: 4
+  MaxCount: 2
 --- !u!4 &1704325662
 Transform:
   m_ObjectHideFlags: 0
@@ -17625,13 +17625,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704604611}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14170296, y: -0, z: -0, w: 0.9899093}
-  m_LocalPosition: {x: 0, y: 5.6, z: -12.59}
+  m_LocalRotation: {x: -0.07664917, y: -0.052295316, z: 0.0036421889, w: -0.9956791}
+  m_LocalPosition: {x: -0.9963074, y: 4.448525, z: -18.530045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1968560840}
-  m_LocalEulerAnglesHint: {x: 16.293, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -18.908, y: 0, z: 0}
 --- !u!114 &1704604613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17717,7 +17717,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
