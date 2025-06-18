@@ -46,8 +46,12 @@ public class EnemyManager : MonoBehaviour
     // 攻撃遅延関連の変数
     public float attackDelayTime = 1.0f; // 攻撃を開始するまでの遅延時間（秒）
     private float currentAttackDelayTimer = 0f; // 現在の攻撃遅延タイマー
-   
 
+    // ノックバック関連の変数
+    [Header("Knockback Settings")]
+    public float knockbackForce = 10f; // ノックバックの強さ
+    public float knockbackDuration = 0.2f; // ノックバックが持続する時間（NavMeshAgent無効化時間）
+    private bool isKnockedBack = false; // ノックバック中かどうかのフラグ
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -61,7 +65,7 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
 
-
+        if (isKnockedBack) return; // ノックバック中は全ての動作をスキップ
         Distance();
         AttackMotion();
        
@@ -129,6 +133,7 @@ public class EnemyManager : MonoBehaviour
     {
         AttackingPlayerCollider.enabled = false;
         EnemyAnimator.SetBool("Attack", false);
+        currentAttackDelayTimer = attackDelayTime;
     }
  
     private void OnTriggerEnter(Collider col)
@@ -162,6 +167,9 @@ public class EnemyManager : MonoBehaviour
             }
             Debug.Log("Hit2!");
             typingCount--;  // タイピングカウントをここで減らす
+
+            
+            ApplyKnockback(col.transform);// ノックバック処理の呼び出し
 
             //与ダメ時のeffect,SE
             audioSource.PlayOneShot(HitSE);
@@ -207,6 +215,68 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    private void ApplyKnockback(Transform attackerTransform)
+    {
+        // ノックバック中ならリターン
+        if (isKnockedBack) return;
+
+        isKnockedBack = true;
+        // Rigidbodyを取得
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            isKnockedBack = false;
+            return;
+        }
+
+        // NavMeshAgentを一時停止（ノックバック中にAIが追跡しないように）
+        if (agent != null && agent.enabled)
+        {
+            agent.isStopped = true; // ナビゲーションの停止
+            agent.enabled = false; 
+        }
+
+        // ノックバックの方向を計算 (敵自身から攻撃者への方向)
+        Vector3 knockbackDirection = (transform.position - attackerTransform.position).normalized;
+        
+         knockbackDirection.y = 0.3f; // 少し浮き上がるように
+         knockbackDirection = knockbackDirection.normalized; // 正規化
+
+        // 力を加える
+        rb.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
+
+        // ノックバック終了を待つ関数を開始
+        StartCoroutine(ResetKnockback());
+    }
+
+    
+    // ノックバック状態をリセットする関数
+    private IEnumerator ResetKnockback() // この関数をコルーチンとして定義
+    {
+        // 指定されたノックバック持続時間だけ待つ
+        yield return new WaitForSeconds(knockbackDuration); // yieldで継続的returnを実現(戻り値の返却のみ行う)
+
+        // ノックバック状態を解除
+        isKnockedBack = false;
+
+        // Rigidbodyの速度をリセット（ノックバックの余韻を残さない場合）
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+
+        // NavMeshAgentを再開
+        if (agent != null && !agent.enabled) // agent.enabled が false なら有効化
+        {
+            agent.enabled = true;
+        }
+        if (agent != null && agent.isStopped) // agent.isStopped が true なら停止解除
+        {
+            agent.isStopped = false;
+        }
+    }
 
 
 

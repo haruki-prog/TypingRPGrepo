@@ -1257,6 +1257,8 @@ MonoBehaviour:
   typingCount: 3
   typingText: {fileID: 3699199042984754131}
   attackDelayTime: 0.5
+  knockbackForce: 10
+  knockbackDuration: 0.2
 --- !u!1 &6069359751527028737
 GameObject:
   m_ObjectHideFlags: 0

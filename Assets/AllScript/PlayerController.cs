@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private Transform currentAimAssistTarget = null; // 現在のエイムアシストターゲット
     private float aimAssistTimer = 0f; // エイムアシストのタイマー
     
+    
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -202,6 +203,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentAimAssistTarget == null) return;
 
+       
         // タイマーを減らす
         aimAssistTimer -= Time.deltaTime;
 
@@ -217,7 +219,7 @@ public class PlayerController : MonoBehaviour
             currentAimAssistTarget = null; // エイムアシスト終了
             aimAssistTimer = 0f;
             canMove = true; // 移動を許可
-            //rigidBody.velocity = Vector3.zero; // 慣性をなくす
+            rigidBody.linearVelocity = Vector3.zero; // 慣性をなくす
             return;
         }
 
