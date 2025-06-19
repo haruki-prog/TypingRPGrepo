@@ -22212,7 +22212,7 @@ PrefabInstance:
       objectReference: {fileID: 411219028}
     - target: {fileID: 6573392919792760096, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
       propertyPath: aimAssistSpeed
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6573392919792760096, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
       propertyPath: aimAssistStopDistance
