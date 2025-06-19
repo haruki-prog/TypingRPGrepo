@@ -47,11 +47,15 @@ public class EnemyManager : MonoBehaviour
     public float attackDelayTime = 1.0f; // 攻撃を開始するまでの遅延時間（秒）
     private float currentAttackDelayTimer = 0f; // 現在の攻撃遅延タイマー
 
+    public GameObject HighrightLine;
+
     // ノックバック関連の変数
     [Header("Knockback Settings")]
     public float knockbackForce = 10f; // ノックバックの強さ
     public float knockbackDuration = 0.2f; // ノックバックが持続する時間（NavMeshAgent無効化時間）
     private bool isKnockedBack = false; // ノックバック中かどうかのフラグ
+
+    
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();

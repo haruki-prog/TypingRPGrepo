@@ -83,8 +83,7 @@ public class TypingManager : MonoBehaviour
         {
             EnemyManager manager = enemy.GetComponent<EnemyManager>();//各 enemy に EnemyManager コンポーネントが付いているか確認
             if (manager == null || manager.typingCount <= 0) continue;//死んだ敵は無視
-
-            float dist = Vector3.Distance(transform.position, enemy.transform.position);//プレイヤーの位置 (transform.position) と敵の位置との距離を計算
+                float dist = Vector3.Distance(transform.position, enemy.transform.position);//プレイヤーの位置 (transform.position) と敵の位置との距離を計算
             if (dist < minDistance && dist < detectionRadius)//今までの中で一番近く、かつプレイヤーの検知範囲内（detectionRadius）なら更新
             {
                 minDistance = dist;//最も近い敵情報として一時保存
@@ -100,12 +99,22 @@ public class TypingManager : MonoBehaviour
 
     public void SetTargetEnemy(EnemyManager enemy)
     {
-
-
-
+        
+        
 
         Debug.Log("SetTargetEnemy 呼び出し:"+enemy.name);
+        if (currentEnemy != null && currentEnemy.HighrightLine != null)
+        {
+            currentEnemy.HighrightLine.SetActive(false);// ハイライト非表示
+        }
+        
         currentEnemy = enemy;//currentEnemyを更新
+
+        if (currentEnemy.HighrightLine != null)
+        {
+            currentEnemy.HighrightLine.SetActive(true); // ハイライト表示
+        }
+        
         currentInput = "";//inputをリセット
         
         if (enemy.typingText != null)//敵が表示用テキスト（typingText）を持っていれば、その内容を typingWord（その敵に設定された単語）で上書き
