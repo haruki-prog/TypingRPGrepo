@@ -12,25 +12,28 @@ public class PlayerController : MonoBehaviour
     
     private int currentHP;
 
-
+    [Header("Speed Settings")]
     public float PlayerSpeed;
     Vector3 speed = Vector3.zero;
     Vector3 rot = Vector3.zero;
+    public float RotationSpeed;         //RotationSpeed:‹“_ˆÚ“®‚ÌŠ´“x‚ğŠi”[‚·‚é•Ï”
+
     public Transform Camera;
 
     bool isRun;
     public bool canMove = true;    //ˆÚ“®‚Å‚«‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éboolŒ^•Ï”
 
-
+    [Header("Attack Animation Setting")]
     public Animator PlayerAnimator;
     public Collider WeaponCollider;
 
 
-    public float RotationSpeed;         //RotationSpeed:‹“_ˆÚ“®‚ÌŠ´“x‚ğŠi”[‚·‚é•Ï”
 
+    [Header("Audio Settings")]
     public AudioSource audioSource;
     public AudioClip SwingSE;
 
+    [Header("Particle Settings")]
     //[SerializeField] private ParticleSystem SwingEffect;
     public ParticleSystem Attack1Effect;
     public ParticleSystem Attack2Effect;
