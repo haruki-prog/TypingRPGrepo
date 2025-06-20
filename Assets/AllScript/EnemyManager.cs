@@ -27,6 +27,8 @@ public class EnemyManager : MonoBehaviour
     public GameObject DeathEffect;
     public GameObject DamageEffect;
 
+    public float Searchrange=0;
+
     public string Target;
     Transform target;
 
@@ -93,7 +95,7 @@ public class EnemyManager : MonoBehaviour
             target = playerObj.transform;
 
             distance = Vector3.Distance(target.position, this.transform.position);
-            if (distance < 10)
+            if (distance < Searchrange)
             {
                 agent.destination = target.position;
                 animator.SetBool("Found", true);
@@ -110,7 +112,7 @@ public class EnemyManager : MonoBehaviour
     //攻撃モーションの設定
     void AttackMotion()
     {
-        if (distance < 2 && distance > 1)
+        if (distance < 2 && distance > 0.5)
         {
             currentAttackDelayTimer -= Time.deltaTime;
             // タイマーが0以下になったら攻撃を開始

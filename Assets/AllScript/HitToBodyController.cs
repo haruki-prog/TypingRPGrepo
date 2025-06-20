@@ -5,7 +5,17 @@ public class HitToBodyController : StateMachineBehaviour
     private PlayerController plc;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        plc.WeaponCollider.enabled = false;
+        plc = animator.GetComponent<PlayerController>();
+
+        if (plc != null)
+        {
+            plc.WeaponCollider.enabled = false;
+        }
+        else
+        {
+            Debug.LogWarning("PlayerController ‚ªæ“¾‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B");
+        }
+       // plc.WeaponCollider.enabled = false;
         animator.SetBool("combo", false);
         animator.SetBool("attack", false);
     }
