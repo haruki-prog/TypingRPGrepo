@@ -99,10 +99,12 @@ public class EnemyManager : MonoBehaviour
             {
                 agent.destination = target.position;
                 animator.SetBool("Found", true);
+                
             }
             else
             {
                 animator.SetBool("Found", false);
+                
             }
         }
 
