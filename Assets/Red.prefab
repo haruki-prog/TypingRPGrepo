@@ -276,9 +276,10 @@ GameObject:
   - component: {fileID: 8598395636259481944}
   - component: {fileID: 7408507357297932946}
   - component: {fileID: 2537263075167149264}
+  - component: {fileID: 4147624452328898184}
   m_Layer: 0
   m_Name: Red
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -414,7 +415,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789924579016282486}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d33561f00ab8fb649abf4dfd2ff5c642, type: 3}
   m_Name: 
@@ -602,6 +603,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 3}
   m_Center: {x: -1, y: 3, z: -1}
+--- !u!114 &4147624452328898184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789924579016282486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1b299c3f1327d47a2faf8a7512a33c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyAnimator: {fileID: 223623078352740149}
+  AttackingPlayerCollider: {fileID: 7222726513699096301}
+  audioSource: {fileID: 6746724783228800879}
+  HitSE: {fileID: 8300000, guid: 1ebe1d746228b6041b8291f16a056d61, type: 3}
+  DeathEffect: {fileID: 2433282508537954060, guid: 3aeddbbf302f69a4fb3cc361afeb971b, type: 3}
+  DamageEffect: {fileID: 2238123927529648645, guid: 6832192dbf9be874487b453ecb8b5fcb, type: 3}
+  Searchrange: 20
+  Target: Player
+  typingWord: kkk
+  typingCount: 3
+  typingText: {fileID: 6003455134591671264}
+  attackDelayTime: 1
+  HighrightLine: {fileID: 2127698033673827223}
+  knockbackForce: 10
+  knockbackDuration: 0.2
 --- !u!1 &827096980846393973
 GameObject:
   m_ObjectHideFlags: 0

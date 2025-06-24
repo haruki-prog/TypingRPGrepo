@@ -3002,6 +3002,17 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &293242701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4147624452328898184, guid: 14d36dae3a8132743b55673f6beb2105, type: 3}
+  m_PrefabInstance: {fileID: 544037097883532064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1b299c3f1327d47a2faf8a7512a33c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &294041759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15276,7 +15287,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ff76158e51be744975609ebb07e261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1383730165
+--- !u!114 &1383730166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283767194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0074345ed1f51cf43afc0ea81cd50350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1383730163}
+  currentBoss: {fileID: 293242701}
+  detectionRadius: 20
+--- !u!114 &1383730171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22189,7 +22215,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3224305986838721178, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1383730165}
+      addedObject: {fileID: 1383730166}
+    - targetCorrespondingSourceObject: {fileID: 3224305986838721178, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1383730171}
   m_SourcePrefab: {fileID: 100100000, guid: 17b7157021731934baf4c49ffac7565e, type: 3}
 --- !u!1001 &6446380010724435080
 PrefabInstance:
