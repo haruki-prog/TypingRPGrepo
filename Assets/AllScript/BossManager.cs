@@ -26,6 +26,7 @@ public class BossManager : MonoBehaviour
 
     public GameObject DeathEffect;
     public GameObject DamageEffect;
+    public GameObject FirebreathEffect;
 
     public float Searchrange = 0;
 
@@ -34,17 +35,18 @@ public class BossManager : MonoBehaviour
 
    
     GameObject playerObj;
-
+    [Header("Typing")]
     [SerializeField] public string typingWord;//与える文字列
     [SerializeField] public int typingCount;//タイピングをする回数
     [SerializeField] public TMP_Text typingText;
     private string currentInput = "";
 
-    
+    [Header("Attack")]
+    public float attackdistanse;
     // 攻撃遅延関連の変数
     public float attackDelayTime = 1.0f; // 攻撃を開始するまでの遅延時間（秒）
     private float currentAttackDelayTimer = 0f; // 現在の攻撃遅延タイマー
-
+    
     public GameObject HighrightLine;
 
     // ノックバック関連の変数
@@ -111,7 +113,7 @@ public class BossManager : MonoBehaviour
     //攻撃モーションの設定
     void AttackMotion()
     {
-        if (distance < 5 && distance > 0.5)
+        if (distance < attackdistanse && distance > 0.5)
         {
             currentAttackDelayTimer -= Time.deltaTime;
             // タイマーが0以下になったら攻撃を開始
@@ -137,6 +139,9 @@ public class BossManager : MonoBehaviour
                 {
                     animator.SetBool("Attack3", true);
                     currentAttackDelayTimer = attackDelayTime;
+                   // Vector3 FirePos = transform.position + new Vector3(0, 1.5f, 1.5f);
+                   // GameObject fire = Instantiate(DamageEffect, FirePos, Quaternion.identity);
+                    //Destroy(fire, 3f);
                 }
             }
 
@@ -231,6 +236,7 @@ public class BossManager : MonoBehaviour
 
                 Destroy(gameObject); // 敵を削除
                 Debug.Log("倒れました");
+                return;
             }
             else
             {

@@ -151,10 +151,10 @@ public class EnemyManager : MonoBehaviour
            
             // TypingManager の currentEnemy を取得
             TypingManager typingManager = Object.FindFirstObjectByType<TypingManager>();
-            Debug.Log("== Trigger 時の確認 ==");
-            Debug.Log($"TypingManager: {typingManager}");
-            Debug.Log($"currentEnemy: {typingManager?.currentEnemy}");
-            Debug.Log($"This:{this},CrrentEnemy:{typingManager.currentEnemy}");
+            
+          
+            
+            Debug.Log(gameObject.name + "の体力は残り：" + typingCount);
             if (typingManager == null)
             {
                 Debug.LogWarning("TypingManager が見つかりません");
@@ -168,12 +168,13 @@ public class EnemyManager : MonoBehaviour
          
 
             // 対象の敵以外は無視
-            if (typingManager.currentEnemy.gameObject != this.gameObject)
+            if (typingManager.currentEnemy.GetInstanceID() != this.GetInstanceID())
             {
                 Debug.Log("攻撃されたが、対象外のため無視: " + gameObject.name);
                 return;
             }
-            Debug.Log("Hit2!");
+
+            Debug.Log("Hit!");
             typingCount--;  // タイピングカウントをここで減らす
 
             
@@ -212,11 +213,12 @@ public class EnemyManager : MonoBehaviour
 
                 Destroy(gameObject); // 敵を削除
                 Debug.Log("倒れました");
+                return;
             }
             else
             {
 
-                Debug.Log("まだ倒れません。残り：" + typingCount);
+                //Debug.Log(gameObject.name+"まだ倒れません。残り：" + typingCount );
                 EnemyAnimator.SetTrigger("Die");
                
             }
