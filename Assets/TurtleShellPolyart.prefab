@@ -1341,7 +1341,7 @@ MonoBehaviour:
   Searchrange: 10
   Target: Player
   typingWord: hhh
-  typingCount: 5
+  typingCount: 3
   typingText: {fileID: 3699199042984754131}
   attackDelayTime: 0.5
   HighrightLine: {fileID: 1099145762163392474}

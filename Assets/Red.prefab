@@ -599,7 +599,7 @@ MonoBehaviour:
   Searchrange: 20
   Target: Player
   typingWord: kkk
-  typingCount: 1
+  typingCount: 2
   typingText: {fileID: 6003455134591671264}
   attackdistanse: 10
   attackDelayTime: 1
