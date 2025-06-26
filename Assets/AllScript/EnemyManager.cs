@@ -57,11 +57,15 @@ public class EnemyManager : MonoBehaviour
     public float knockbackDuration = 0.2f; // ノックバックが持続する時間（NavMeshAgent無効化時間）
     private bool isKnockedBack = false; // ノックバック中かどうかのフラグ
 
-    
+    Vector3 effectPosition;
+
+    Rigidbody rb;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
         agent.speed = speed;
         // currentHP = enemyStatusSO.HP;
         playerObj = GameObject.FindWithTag(Target);
@@ -74,7 +78,7 @@ public class EnemyManager : MonoBehaviour
         if (isKnockedBack) return; // ノックバック中は全ての動作をスキップ
         Distance();
         AttackMotion();
-       
+        effectPosition = transform.position + new Vector3(0, 1.5f, 0);
 
     }
 
@@ -182,7 +186,7 @@ public class EnemyManager : MonoBehaviour
 
             //与ダメ時のeffect,SE
             audioSource.PlayOneShot(HitSE);
-            Vector3 effectPosition = transform.position + new Vector3(0, 1.5f, 0);
+            //Vector3 effectPosition = transform.position + new Vector3(0, 1.5f, 0);
             GameObject effect = Instantiate(DamageEffect, effectPosition, Quaternion.identity);
             Destroy(effect, 2);
 
@@ -197,8 +201,8 @@ public class EnemyManager : MonoBehaviour
 
                 if (DeathEffect != null)
                 {
-                    Vector3 effectPosition1 = transform.position + new Vector3(0, 1.5f, 0);
-                    GameObject effect1 = Instantiate(DeathEffect, effectPosition1, Quaternion.identity);
+                    //Vector3 effectPosition1 = transform.position + new Vector3(0, 1.5f, 0);
+                    GameObject effect1 = Instantiate(DeathEffect, effectPosition, Quaternion.identity);
                     Destroy(effect1, 3);
                    
                 }
@@ -232,7 +236,7 @@ public class EnemyManager : MonoBehaviour
 
         isKnockedBack = true;
         // Rigidbodyを取得
-        Rigidbody rb = GetComponent<Rigidbody>();
+        //Rigidbody rb = GetComponent<Rigidbody>();
         if (rb == null)
         {
             isKnockedBack = false;
@@ -243,7 +247,7 @@ public class EnemyManager : MonoBehaviour
         if (agent != null && agent.enabled)
         {
             agent.isStopped = true; // ナビゲーションの停止
-            agent.enabled = false; 
+            //agent.enabled = false; 
         }
 
         // ノックバックの方向を計算 (敵自身から攻撃者への方向)

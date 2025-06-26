@@ -328,12 +328,12 @@ MonoBehaviour:
   Searchrange: 20
   Target: Player
   typingWord: yyy
-  typingCount: 2
+  typingCount: 5
   typingText: {fileID: 1314364771891930542}
   attackDelayTime: 0.5
   HighrightLine: {fileID: 7270592238800286539}
-  knockbackForce: 10
-  knockbackDuration: 0.2
+  knockbackForce: 20
+  knockbackDuration: 0.3
 --- !u!65 &456705257184027144
 BoxCollider:
   m_ObjectHideFlags: 0

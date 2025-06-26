@@ -138,10 +138,11 @@ public class BossManager : MonoBehaviour
                 if (currentAttackDelayTimer <= 0f)
                 {
                     animator.SetBool("Attack3", true);
+                    
+                    Vector3 FirePos = transform.position + new Vector3(0, 1.5f, 1.5f);
+                    GameObject fire = Instantiate(FirebreathEffect, FirePos, Quaternion.identity);
+                    Destroy(fire, 3f);
                     currentAttackDelayTimer = attackDelayTime;
-                   // Vector3 FirePos = transform.position + new Vector3(0, 1.5f, 1.5f);
-                   // GameObject fire = Instantiate(DamageEffect, FirePos, Quaternion.identity);
-                    //Destroy(fire, 3f);
                 }
             }
 

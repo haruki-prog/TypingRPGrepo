@@ -1166,7 +1166,6 @@ GameObject:
   - component: {fileID: 2342555936100939491}
   - component: {fileID: 683561193958621876}
   - component: {fileID: 8603414433450649529}
-  - component: {fileID: 4839078110588113365}
   - component: {fileID: 8178105936279940924}
   m_Layer: 0
   m_Name: TurtleShellPolyart
@@ -1297,7 +1296,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: f851b18423764f042a1eccaa53c49d16, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2fa00420624a0944e82286fb06328fba, type: 2}
   m_BuildHeightMesh: 0
 --- !u!195 &8603414433450649529
 NavMeshAgent:
@@ -1321,38 +1320,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4839078110588113365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5782531639551700745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 0240f0d6c665b1143a91b2cd8f9cad5b, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!114 &8178105936279940924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,12 +1341,12 @@ MonoBehaviour:
   Searchrange: 10
   Target: Player
   typingWord: hhh
-  typingCount: 3
+  typingCount: 5
   typingText: {fileID: 3699199042984754131}
   attackDelayTime: 0.5
   HighrightLine: {fileID: 1099145762163392474}
-  knockbackForce: 10
-  knockbackDuration: 0.2
+  knockbackForce: 20
+  knockbackDuration: 0.3
 --- !u!1 &6069359751527028737
 GameObject:
   m_ObjectHideFlags: 0
