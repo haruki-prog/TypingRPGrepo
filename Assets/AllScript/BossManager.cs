@@ -26,7 +26,7 @@ public class BossManager : MonoBehaviour
 
     public GameObject DeathEffect;
     public GameObject DamageEffect;
-    public GameObject FirebreathEffect;
+    public ParticleSystem FirebreathEffect;
 
     public float Searchrange = 0;
 
@@ -54,6 +54,8 @@ public class BossManager : MonoBehaviour
     public float knockbackForce = 10f; // ノックバックの強さ
     public float knockbackDuration = 0.2f; // ノックバックが持続する時間（NavMeshAgent無効化時間）
     private bool isKnockedBack = false; // ノックバック中かどうかのフラグ
+
+    
 
 
     void Start()
@@ -139,9 +141,9 @@ public class BossManager : MonoBehaviour
                 {
                     animator.SetBool("Attack3", true);
                     
-                    Vector3 FirePos = transform.position + new Vector3(0, 1.5f, 1.5f);
+                    /*Vector3 FirePos = transform.position + new Vector3(0, 1.5f, 1.5f);
                     GameObject fire = Instantiate(FirebreathEffect, FirePos, Quaternion.identity);
-                    Destroy(fire, 3f);
+                    Destroy(fire, 3f);*/
                     currentAttackDelayTimer = attackDelayTime;
                 }
             }
@@ -312,6 +314,9 @@ public class BossManager : MonoBehaviour
         }
     }
 
-
+    void PlayAttack1Effect()
+    {
+        FirebreathEffect.Play();
+    }
 
 }
